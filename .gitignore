@@ -1,0 +1,12 @@
+# Python
+.venv/
+__pycache__/
+*.egg-info/
+build/
+.ipynb_checkpoints/
+
+# PRIVATE: manuscript and publishing plan (keep out of the public repo
+# until the publisher contract allows an open edition)
+chapters/
+notebooks/
+BOOK_PLAN.md
