@@ -8,5 +8,7 @@ Chapter 4 opens this box and shows how each function works, line by line.
 """
 
 from .sources import mospi_cpi, worldbank
+from .plfs import read_plfs, layout_names, labour_status, labour_rates
 
-__all__ = ["mospi_cpi", "worldbank"]
+__all__ = ["mospi_cpi", "worldbank", "read_plfs", "layout_names",
+           "labour_status", "labour_rates"]

@@ -15,6 +15,7 @@ data/raw/    dated snapshots of the data used in the book
 | Chapter | Topic | Open |
 |---|---|---|
 | 1 | Your First Look at Indian Inflation | [labs/ch01_first_look_at_inflation.ipynb](labs/ch01_first_look_at_inflation.ipynb) |
+| 14 | Working with PLFS Unit-Level Data | [labs/ch14_plfs_unit_level_data.ipynb](labs/ch14_plfs_unit_level_data.ipynb) |
 
 ## Run in Google Colab (no installation)
 
@@ -40,6 +41,21 @@ gdp = worldbank("NY.GDP.MKTP.KD.ZG")    # India's real GDP growth, World Bank
 ```
 
 Every download is cached in `data/raw/` with the date it was fetched.
+
+### PLFS unit-level data (Chapter 14)
+
+MoSPI does not allow PLFS microdata to be redistributed, so this repository
+contains **no PLFS data**. Register free at <https://microdata.gov.in>, open
+*Periodic Labour Force Survey (PLFS), July 2023–June 2024*, download the CSV zip
+and the data layout workbook, and unzip them into `data/plfs/`. Then:
+
+```python
+from indiadata import read_plfs, labour_status, labour_rates
+
+p = read_plfs("perv1", columns=["sex", "age", "pas", "sas"])  # readable names + survey weight
+p["status"] = labour_status(p["pas"], p["sas"])               # usual status (ps+ss)
+labour_rates(p[p["age"] >= 15])                                # LFPR 60.1, WPR 58.2, UR 3.2
+```
 
 | Source | Data | Access |
 |---|---|---|

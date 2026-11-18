@@ -10,3 +10,6 @@ build/
 chapters/
 notebooks/
 BOOK_PLAN.md
+
+# PLFS unit-level data: MoSPI licence forbids redistribution
+data/plfs/
