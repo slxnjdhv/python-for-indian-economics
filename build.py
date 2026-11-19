@@ -17,8 +17,14 @@ The build fails loudly if any cell raises an error, so a chapter that builds
 is a chapter whose code works.
 """
 
+import os
 import sys
 from pathlib import Path
+
+# Keep each kernel small: one maths thread is plenty for teaching data sets,
+# and it stops NumPy's BLAS reserving memory for every CPU core.
+for _var in ("OPENBLAS_NUM_THREADS", "OMP_NUM_THREADS", "MKL_NUM_THREADS"):
+    os.environ.setdefault(_var, "1")
 
 import jupytext
 import nbformat
