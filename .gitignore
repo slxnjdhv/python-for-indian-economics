@@ -17,3 +17,6 @@ data/plfs/
 # Downloaded and derived data: chapters fetch their own data at run time.
 # Third-party documents and caches are not redistributed.
 data/
+
+# Online supplement drafts (prose; private until publication)
+supplement/
